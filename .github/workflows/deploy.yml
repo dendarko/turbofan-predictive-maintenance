@@ -24,16 +24,14 @@ jobs:
         project_id: ${{ secrets.GCP_PROJECT_ID }}
 
 
-    - name: Configure Docker for Google Cloud
-      run: gcloud auth configure-docker
-
     - name: Build Docker image
       run: |
-        docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/turbofan-predictive-maintenance:$GITHUB_SHA .
-    
+        docker build -t gcr.io/nasa-turbofan-predictive-1/turbofan-predictive-maintenance:$GITHUB_SHA .
+
     - name: Push Docker image
       run: |
-        docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/turbofan-predictive-maintenance:$GITHUB_SHA
+       docker push gcr.io/nasa-turbofan-predictive-1/turbofan-predictive-maintenance:$GITHUB_SHA
+
     
     - name: Deploy to Cloud Run
       run: |
