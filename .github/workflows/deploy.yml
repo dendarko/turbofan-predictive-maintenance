@@ -33,10 +33,9 @@ jobs:
     
     - name: Deploy to Cloud Run
       run: |
-        gcloud run deploy turbofan-predictive-maintenance \
+        gcloud run deploy nasa-turbofan-predictor-service \
           --image gcr.io/${{ secrets.GCP_PROJECT_ID }}/turbofan-predictive-maintenance:$GITHUB_SHA \
           --platform managed \
           --region us-central1 \
           --allow-unauthenticated \
           --memory=512Mi
-
