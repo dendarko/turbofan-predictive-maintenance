@@ -25,20 +25,20 @@ jobs:
         install_components: 'gcloud'
 
     - name: Configure Docker
-      run: gcloud auth configure-docker gcr.io
+      run: gcloud auth configure-docker us-central1-docker.pkg.dev
 
     - name: Build Docker image
       run: |
-        docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/turbofan-predictive-maintenance/turbofan-predictive-maintenance:$GITHUB_SHA .
+        docker build -t us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/turbofan-predictive-maintenance/turbofan-predictive-maintenance:$GITHUB_SHA .
 
     - name: Push Docker image
       run: |
-        docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/turbofan-predictive-maintenance/turbofan-predictive-maintenance:$GITHUB_SHA
+        docker push us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/turbofan-predictive-maintenance/turbofan-predictive-maintenance:$GITHUB_SHA
 
     - name: Deploy to Cloud Run
       run: |
         gcloud run deploy nasa-turbofan-predictor-service \
-          --image gcr.io/${{ secrets.GCP_PROJECT_ID }}/turbofan-predictive-maintenance/turbofan-predictive-maintenance:$GITHUB_SHA \
+          --image us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/turbofan-predictive-maintenance/turbofan-predictive-maintenance:$GITHUB_SHA \
           --platform managed \
           --region us-central1 \
           --allow-unauthenticated \
