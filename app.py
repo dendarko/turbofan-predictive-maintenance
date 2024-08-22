@@ -25,7 +25,8 @@ models = {key: joblib.load(model_paths[key]) for key in model_paths}
 def index():
     if request.method == 'POST':
         dataset = request.form.get('dataset')
-        features = [float(x) for x in request.form.getlist('feature')]
+        # Process the features correctly
+        features = [float(x.strip()) for x in request.form.get('feature').split(',')]
         prediction = predict(dataset, features)
         return redirect(url_for('result', dataset=dataset, prediction=prediction))
     return render_template('index.html')
