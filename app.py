@@ -14,10 +14,10 @@ app = Flask(__name__)
 
 # Load models
 model_paths = {
-    'FD001': 'models/model__train_FD001.pkl',
-    'FD002': 'models/model__train_FD002.pkl',
-    'FD003': 'models/model__train_FD003.pkl',
-    'FD004': 'models/model_train_FD004.pkl'
+    'FD001': 'models/model_FD001.pkl',
+    'FD002': 'models/model_FD002.pkl',
+    'FD003': 'models/model_FD003.pkl',
+    'FD004': 'models/model_FD004.pkl'
 }
 models = {key: joblib.load(model_paths[key]) for key in model_paths}
 
