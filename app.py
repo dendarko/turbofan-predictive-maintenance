@@ -26,12 +26,7 @@ def index():
     if request.method == 'POST':
         dataset = request.form.get('dataset')
         # Process the features correctly
-        features_str = request.form.get('feature')
-        features = [float(x.strip()) for x in features_str.split(',') if x.strip()]
-        
-        if len(features) != 50:
-            return "Error: Please enter exactly 50 features."
-
+        features = [float(x.strip()) for x in request.form.get('feature').split(',')]
         prediction = predict(dataset, features)
         return redirect(url_for('result', dataset=dataset, prediction=prediction))
     return render_template('index.html')
@@ -39,6 +34,11 @@ def index():
 def predict(dataset, features):
     model = models[dataset]
     prediction = model.predict([features])[0]
+
+    # Ensure the directory exists
+    output_dir = 'static/images'
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
 
     # Generate visualizations
     feature_names = [f'Feature {i+1}' for i in range(len(features))]
