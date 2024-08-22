@@ -4,6 +4,12 @@ import numpy as np
 import os
 from visualizations.visualization import plot_feature_importance, plot_predictions_vs_true
 
+# Handle possible ImportError for url_quote
+try:
+    from werkzeug.urls import url_quote
+except ImportError:
+    from urllib.parse import quote as url_quote
+
 app = Flask(__name__)
 
 # Load models
