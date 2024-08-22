@@ -63,9 +63,9 @@
                 <div class="form-text">Choose the dataset representing different engine conditions and settings.</div>
             </div>
             <div class="mb-3">
-                <label for="features">Enter Features (comma-separated):</label>
+                <label for="features">Enter Features (comma-separated, 50 values):</label>
                 <input type="text" class="form-control" id="features" name="feature" placeholder="e.g., 12.5, 35.2, 50.3, ..." required>
-                <div class="form-text">Provide the sensor readings and operational settings as a comma-separated list. These will be used to predict the Remaining Useful Life (RUL) of the engine.</div>
+                <div class="form-text">Provide exactly 50 sensor readings and operational settings as a comma-separated list. These will be used to predict the Remaining Useful Life (RUL) of the engine.</div>
             </div>
             <button type="submit" class="btn btn-primary">Predict</button>
         </form>
