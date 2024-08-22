@@ -27,7 +27,9 @@ def plot_predictions_vs_true(y_true, y_pred, dataset_name):
     """Generate a scatter plot comparing true vs. predicted values."""
     plt.figure(figsize=(12, 8))
     sns.scatterplot(x=y_true, y=y_pred, color='dodgerblue', s=100, edgecolor='k', alpha=0.6)
-    sns.lineplot(x=y_true, y=y_true, color='red', linestyle='--', lw=2)  # Perfect prediction line
+
+    # Plot the line of perfect predictions
+    plt.plot([min(y_true), max(y_true)], [min(y_true), max(y_true)], 'r--', lw=2)
 
     plt.title(f"Predictions vs. True Values for {dataset_name}", fontsize=16)
     plt.xlabel('True Values', fontsize=14)
