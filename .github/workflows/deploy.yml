@@ -21,24 +21,24 @@ jobs:
     - name: Set up Google Cloud SDK
       uses: google-github-actions/setup-gcloud@v1
       with:
-       project_id: ${{ secrets.GCP_PROJECT_ID }}
-       install_components: 'gcloud'
+        project_id: ${{ secrets.GCP_PROJECT_ID }}
+        install_components: 'gcloud'
 
     - name: Configure Docker
       run: gcloud auth configure-docker gcr.io
 
     - name: Build Docker image
       run: |
-        docker build -t gcr.io/nasa-turbofan-predictive-1/turbofan-predictive-maintenance:$GITHUB_SHA .
+        docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/turbofan-predictive-maintenance/turbofan-predictive-maintenance:$GITHUB_SHA .
 
     - name: Push Docker image
       run: |
-        docker push gcr.io/nasa-turbofan-predictive-1/turbofan-predictive-maintenance:$GITHUB_SHA
+        docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/turbofan-predictive-maintenance/turbofan-predictive-maintenance:$GITHUB_SHA
 
     - name: Deploy to Cloud Run
       run: |
         gcloud run deploy nasa-turbofan-predictor-service \
-          --image gcr.io/nasa-turbofan-predictive-1/turbofan-predictive-maintenance:$GITHUB_SHA \
+          --image gcr.io/${{ secrets.GCP_PROJECT_ID }}/turbofan-predictive-maintenance/turbofan-predictive-maintenance:$GITHUB_SHA \
           --platform managed \
           --region us-central1 \
           --allow-unauthenticated \
