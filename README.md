@@ -262,12 +262,6 @@ This project is based on data from the NASA Prognostics Data Repository.
 
 Special thanks to the authors of the C-MAPSS datasets for their contributions to predictive maintenance research. 
 
-    
-
-## **License** 
-
-This project is licensed under the MIT License. 
-
   
 
 ## **Contact** 
