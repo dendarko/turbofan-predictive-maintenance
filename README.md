@@ -116,7 +116,7 @@ The project integrates machine learning techniques with a Flask web application,
 
 - The feature importance plot illustrates which factors most significantly affect the model’s predictions. Features with higher importance values are critical in determining the Remaining Useful Life of the engine.  
 
-![Feature Importance](images/feature_importance.png "Feature Importance") 
+![Feature Importance](feature_importance.png "Feature Importance") 
 
  
 
@@ -124,7 +124,7 @@ The project integrates machine learning techniques with a Flask web application,
 
    - The predictions vs. true values plot provides a clear visual representation of the model’s performance. It allows users to see how closely the predictions align with actual outcomes, with a line indicating perfect predictions for comparison. 
 
-![Predictions vs. True Values](images/predictions_vs_true.png "Predictions vs. True Values") 
+![Predictions vs. True Values](predictions_vs_true.png "Predictions vs. True Values") 
 
   
 
@@ -132,7 +132,7 @@ The project integrates machine learning techniques with a Flask web application,
 
    - The web application’s user interface is designed to be intuitive and user-friendly. Users can easily input data, view results, and understand the model’s outputs through clear visualizations. 
 
-   ![User Interface](images/ui_screenshot.png "User Interface") 
+   ![User Interface](ui_screenshot.png "User Interface") 
 
   
 
